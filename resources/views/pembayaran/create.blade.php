@@ -16,20 +16,20 @@
                     <div class="form-group">
 						<label for="" class="label-control col-sm-2">Nomer Induk Santri</label>
 						<div class="col-sm-3">
-							<input type="text" class="form-control" name="nis" value="{{ old('nis', $datanis->nis) }}">
+							<input type="text" class="form-control" name="nis" value="{{ old('nis', $datanis->nis) }}" readonly="true">
 							<input type="hidden" name="id_santri" value="{{ $datanis->id }}">
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="" class="label-control col-sm-2">Nama Santri</label>
 						<div class="col-sm-3">
-							<input type="text" class="form-control" name="nama" value="{{ old('nama', $datanis->nama) }}">
+							<input type="text" class="form-control" name="nama" value="{{ old('nama', $datanis->nama) }}" readonly="true">
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="" class="label-control col-sm-2">Kelas</label>
 						<div class="col-sm-3">
-							<input type="text" class="form-control" name="kelas" value="{{ old('kelas', $datanis->kelas->nama_kelas) }}">
+							<input type="text" class="form-control" name="kelas" value="{{ old('kelas', $datanis->kelas->nama_kelas) }}" readonly="true">>
 						</div>
 					</div>
 					<div class="form-group">

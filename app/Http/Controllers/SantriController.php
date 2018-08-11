@@ -10,6 +10,14 @@ use Toastr;
 
 class SantriController extends Controller
 {
+    public function getCari(Request $r)
+    {
+      $data = Santri::where('nama', 'LIKE', '%' . $r->q . '%')->orderby('id', 'desc')->paginate(3);
+      $data->appends(['q'=>$r->q]);
+      return view('santri.index', [
+          'vData' => $data
+      ]);
+    }
     /**
      * Display a listing of the resource.
      *

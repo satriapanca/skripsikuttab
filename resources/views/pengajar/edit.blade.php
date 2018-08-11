@@ -80,23 +80,6 @@
 							<textarea name="alamat" rows="5" class="form-control">{{ $data->alamat }}</textarea>
 						</div>
 					</div>
-
-					<h4>Login Pegawai</h4>
-					<hr>
-					<div class="form-group">
-						<label for="" class="label-control col-sm-3">Username</label>
-						<div class="col-sm-9">
-							<input type="text" class="form-control" name="username">
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="" class="label-control col-sm-3">Password</label>
-						<div class="col-sm-9">
-							<input type="password" class="form-control" name="password">
-						</div>
-					</div>
-
-				</div>
 				<div class="box-footer">
 					<a href="{{ route('pengajar.index') }}" class="btn btn-danger">Batalkan</a>
 					<button type="submit" class="btn btn-primary">Simpan Perubahan</button>

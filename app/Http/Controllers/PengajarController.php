@@ -10,6 +10,16 @@ use Toastr;
 
 class PengajarController extends Controller
 {
+    
+    public function getCari(Request $r)
+    {
+      $data = Pengajar::where('nama', 'LIKE', '%' . $r->q . '%')->orderby('id', 'desc')->paginate(3);
+      $data->appends(['q'=>$r->q]);
+      return view('pengajar.index', [
+          'vData' => $data
+      ]);
+    }
+    
     /**
      * Display a listing of the resource.
      *

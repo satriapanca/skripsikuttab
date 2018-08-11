@@ -47,14 +47,14 @@ class PembayaranController extends Controller
      */
     public function create()
     {
-        // dd(session()->get('datanis'));
+
         $datanis = session('datanis1') == null ? session('datanis') : session('datanis1');
         $santri = Santri::get();
         $jenis = Jenis::get();
         return view('pembayaran.create', [
             'vJenis' => $jenis,
             'vSantri' => $santri,
-            'datanis' => $datanis,
+            'datanis' => $datanis
         ]);
     }
 
@@ -127,6 +127,9 @@ class PembayaranController extends Controller
             'nama_kelas' => $santri->kelas->nama_kelas,
         ];
         // Pembayaran::where('santri_id', $id)->get();
+        $datanis = session('datanis1') == null ? session('datanis') : session('datanis1');
+        $santri = Santri::get();
+        $jenis = Jenis::get();
         $data_pem = Pembayaran::where('santri_id', $id)->paginate(5);
         $data_note = session('datanote' . $id);
         $jenis = Jenis::get();
@@ -135,7 +138,10 @@ class PembayaranController extends Controller
             'vJenis' => $jenis,
             'data' => $data,
             'data_pem' => $data_pem,
-            'data_note' => $data_note
+            'data_note' => $data_note,
+            'vJenis' => $jenis,
+            'vSantri' => $santri,
+            'datanis' => $datanis
         ]);
     }
 

@@ -12,4 +12,9 @@ class Pelajaran extends Model
     {
     	return $this->BelongsTo('App\Kategori', 'kategori_id');
     }
+    public function nilaiangka()
+    {
+        return $this->hasMany('App\Nilaiangka', 'matapelajaran_id');
+        
+    }
 }

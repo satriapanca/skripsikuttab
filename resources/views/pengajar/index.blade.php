@@ -10,14 +10,14 @@
 				<h3 class="box-title">Tabel Pengajar</h3>
 				<a href="{{ route('pengajar.create') }}" class="btn btn-xs btn-info">Tambah Data</a>
 				<div class="box-tools">
-					{{ $vData->links() }}
-					{{-- <ul class="pagination pagination-sm no-margin pull-right">
-						<li><a href="#">&laquo;</a></li>
-						<li><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">&raquo;</a></li>
-					</ul> --}}
+          <form class="form" action="{{ route('pengajar.cari') }}" method="get">
+            <div class="input-group input-group-sm" style="width: 150px;">
+              <input type="text" name="q" class="form-control pull-right" placeholder="Pencarian Nama">
+              <div class="input-group-btn">
+                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+              </div>
+            </div>
+          </form>
 				</div>
 			</div>
 			<div class="box-body">
@@ -30,9 +30,6 @@
 								<th>Nama</th>
 								<th>Jabatan</th>
 								<th>No. Telepon</th>
-								<th>Username</th>
-								<th>Password</th>
-								<th>Tanggal Buat</th>
 								<th>Aksi</th>
 							</tr>
 						</thead>
@@ -46,9 +43,6 @@
 										<td>{{ $r->nama }}</td>
 										<td>{{ $r->jabatan->nama }}</td>
 										<td>{{ $r->no_telp }}</td>
-										<td></td>
-										<td></td>
-										<td>{{ Carbon\Carbon::parse($r->created_at)->format('Y-m-d') }}</td>
 										<td>
 											<a href="{{ route('pengajar.edit', ['id' => $r->id]) }}" class="btn btn-xs btn-success">Edit</a>
 											<a href="{{ route('pengajar.destroy', ['id' => $r->id]) }}" class="btn btn-xs btn-danger on-deleted" data-method="delete" data-confirm="Apakah anda yakin menghapus data ini?" data-token="{{ csrf_token() }}">Hapus</a>
@@ -61,7 +55,7 @@
 					</table>
 				</div>
 			</div>
-			<div class="box-footer"></div>
+			<div class="box-footer"> {{ $vData->links() }}</div>
 		</div>
 	</div>
 </div>

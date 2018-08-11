@@ -10,6 +10,7 @@ use Toastr;
 
 class PelajaranController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -48,6 +49,7 @@ class PelajaranController extends Controller
         $rules = [
             'namapelajaran' => 'required',
             'sub_pelajaran' => 'required',
+           
         ];
 
         $valid = Validator::make($request->all(), $rules);

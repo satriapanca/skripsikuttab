@@ -16,4 +16,9 @@ class Kelas extends Model
     {
     	return $this->hasMany('App\Santri', 'kelas_id');
     }
+    public function nilaiangka()
+    {
+        return $this->hasMany('App\Nilaiangka', 'kelas_id');
+        
+    }
 }

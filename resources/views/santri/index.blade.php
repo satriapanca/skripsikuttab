@@ -10,14 +10,14 @@
 				<h3 class="box-title">Tabel Santri</h3>
 				<a href="{{ route('santri.create') }}" class="btn btn-xs btn-info">Tambah Data</a>
 				<div class="box-tools">
-					{{ $vData->links() }}
-					{{-- <ul class="pagination pagination-sm no-margin pull-right">
-						<li><a href="#">&laquo;</a></li>
-						<li><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">&raquo;</a></li>
-					</ul> --}}
+			<form class="form" action="{{ route('santri.cari') }}" method="get">
+            <div class="input-group input-group-sm" style="width: 150px;">
+              <input type="text" name="q" class="form-control pull-right" placeholder="Pencarian Nama">
+              <div class="input-group-btn">
+                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+              </div>
+            </div>
+          </form>
 				</div>
 			</div>
 			<div class="box-body">
@@ -55,7 +55,7 @@
 					</table>
 				</div>
 			</div>
-			<div class="box-footer"></div>
+			<div class="box-footer">{{ $vData->links() }}</div>
 		</div>
 	</div>
 </div>

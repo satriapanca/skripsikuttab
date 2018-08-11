@@ -41,7 +41,6 @@
 										<td>{{ $r->nama_kelas }}</td>
 										<td>{{ $r->pengajar->nama }}</td>
 										<td>{{ $r->thnakademik }}</td>
-										Carbon\Carbon::parse($r->created_at)->format('Y-m-d')
 										<td>
 											<a href="{{ route('kelas.edit', ['id' => $r->id]) }}" class="btn btn-xs btn-success">Edit</a>
 											<a href="{{ route('kelas.destroy', ['id' => $r->id]) }}" class="btn btn-xs btn-danger on-deleted" data-method="delete" data-confirm="Apakah anda yakin menghapus data ini?" data-token="{{ csrf_token() }}">Hapus</a>

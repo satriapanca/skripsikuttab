@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Kas;
+use App\Nilaiangka;
+use App\Kelas;
 use App\Pengajar;
+use App\Santri;
+use App\Pelajaran;
 use Validator;
 use Toastr;
 
-class KasController extends Controller
+class NilaiangkaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +20,9 @@ class KasController extends Controller
      */
     public function index()
     {
-        $data = Kas::all();
-        return view('kas.index', [
-            'vData' => $data
+        $kelas = Kelas::all();
+        return view('nilaiangka.index', [
+            'vKelas' => $kelas,
         ]);
     }
 
@@ -30,7 +33,7 @@ class KasController extends Controller
      */
     public function create()
     {
-        return view('kas.create');
+      
     }
 
     /**
@@ -41,29 +44,7 @@ class KasController extends Controller
      */
     public function store(Request $request)
     {
-          // https://laravel.com/docs/5.4/validation#available-validation-rules
-          $rules = [
-            'kode' => 'required',
-            'keterangan' => 'required',
-        ];
-
-        $valid = Validator::make($request->all(), $rules);
-        if ($valid->fails()) {
-            // $errors = $valid->errors()->all();
-            // Toastr::error('<ul><li>' . implode('</li><li>', $errors) . '</li></ul>', 'Kesalahan');
-            return redirect()->back()->withErrors($valid)->withInput();
-        }
-        else {
-            $kas = new Kas;
-            $kas->kode = $request->kode;
-            $kas->keterangan = $request->keterangan;
-            $kas->tanggal = $request->tanggal;
-            $kas->masuk = $request->masuk;
-            $kas->keluar = $request->keluar;
-            $kas->save();
-            Toastr::success('Data berhasil disimpan', 'Sukses');
-            return redirect()->route('kas.index');
-        }
+        //
     }
 
     /**
@@ -108,7 +89,18 @@ class KasController extends Controller
      */
     public function destroy($id)
     {
-        $data = Kas::findOrFail($id)->delete();
-        return redirect()->route('kas.index');
+        //
+    }
+
+    public function getUTS($uts)
+    {
+        $kelas = Kelas::find($uts);
+        $pelajaran = Pelajaran::get();
+        $santri = Santri::get();
+        return view('nilaiangka.create', [
+            'vKelas' => $kelas,
+            'vPelajaran' => $pelajaran,
+            'vSantri' => $santri
+        ]);
     }
 }

@@ -17,5 +17,10 @@ class Santri extends Model
         return $this->hasMany('App\Pembayaran', 'santri_id');
         
     }
+    public function nilaiangka()
+    {
+        return $this->hasMany('App\Nilaiangka', 'santri_id');
+        
+    }
 
 }

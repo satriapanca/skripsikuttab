@@ -23,5 +23,10 @@ class Pengajar extends Model
         return $this->hasMany('App\Kas', 'pengajar_id');
         
     }
+    public function nilaiangka()
+    {
+        return $this->hasMany('App\Nilaiangka', 'pengajar_id');
+        
+    }
 
 }
